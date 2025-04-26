@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from 'jsm/controls/OrbitControls.js';
+import { OrbitControls } from "jsm/controls/OrbitControls.js";
 
 import getStarfield from "./stars/getStarfield.js";
 import { getFresnelMat } from "./stars/getFresnelMat.js";
@@ -17,7 +17,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
 const earthGroup = new THREE.Group();
-earthGroup.rotation.z = -23.4 * Math.PI / 180;
+earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
 scene.add(earthGroup);
 
 new OrbitControls(camera, renderer.domElement);
@@ -49,7 +49,7 @@ const cloudsMat = new THREE.MeshStandardMaterial({
   transparent: true,
   opacity: 0.8,
   blending: THREE.AdditiveBlending,
-  alphaMap: loader.load('./textures/05_earthcloudmaptrans.jpg'),
+  alphaMap: loader.load("./textures/05_earthcloudmaptrans.jpg"),
   // alphaTest: 0.3,
 });
 const cloudsMesh = new THREE.Mesh(geometry, cloudsMat);
@@ -61,7 +61,7 @@ const glowMesh = new THREE.Mesh(geometry, fresnelMat);
 glowMesh.scale.setScalar(1.01);
 earthGroup.add(glowMesh);
 
-const stars = getStarfield({numStars: 2000});
+const stars = getStarfield({ numStars: 2000 });
 scene.add(stars);
 
 const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
